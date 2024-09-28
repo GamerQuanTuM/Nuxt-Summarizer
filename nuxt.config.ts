@@ -25,4 +25,14 @@ export default defineNuxtConfig({
     jobsDir: 'cron'
   },
   ssr: false,
+  build: {
+    transpile: ['pdfjs-dist']
+  },
+  vite: {
+    resolve: {
+      alias: {
+        'pdfjs-dist': 'pdfjs-dist/legacy/build/pdf',
+      },
+    },
+  },
 });
