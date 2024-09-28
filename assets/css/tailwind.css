@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(
+    to right,
+    white 0%,
+    white var(--value, 0%),
+    #f5b4d0 var(--value, 0%),
+    #f5b4d0 100%
+  );
+
+  border-radius: 5px;
+  outline: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  display: none;
+}
+
+.range-slider::-moz-range-thumb {
+  display: none;
+}
+
+.range-slider::-ms-thumb {
+  display: none;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  --b: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(#0000 10%, #BB2D6A) content-box;
+  -webkit-mask: repeating-conic-gradient(
+      #0000 0deg,
+      #000 1deg 20deg,
+      #0000 21deg 36deg
+    ),
+    radial-gradient(
+      farthest-side,
+      #0000 calc(100% - var(--b) - 1px),
+      #000 calc(100% - var(--b))
+    );
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation: l4 1s infinite steps(10);
+}
+@keyframes l4 {
+  to {
+    transform: rotate(1turn);
+  }
+}
